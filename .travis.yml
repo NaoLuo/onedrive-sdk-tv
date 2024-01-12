@@ -1,0 +1,11 @@
+language: objective-c
+osx_image: xcode7.3
+
+before_install:
+    - brew update
+    - brew outdated xctool || brew upgrade xctool
+    - cd OneDriveSDK && pod install
+
+script : 
+    - xctool test -workspace OneDriveSDK.xcworkspace -scheme OneDriveSDKTests -sdk iphonesimulator
+
